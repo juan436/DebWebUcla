@@ -31,7 +31,7 @@ COPY docker/apache-config.conf /etc/apache2/sites-available/000-default.conf
 COPY . /var/www/html/
 
 # Configurar variables de entorno
-COPY includes/.env.example /var/www/html/includes/.env
+COPY includes/.env /var/www/html/includes/.env
 
 # Establecer permisos
 RUN chown -R www-data:www-data /var/www/html \
