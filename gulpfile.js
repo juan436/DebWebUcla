@@ -48,7 +48,7 @@ function javascript() {
                 ]
             },
             mode: 'production',
-            watch: true,
+            watch: false,
             entry: './src/js/app.js'
         }))
         .pipe(sourcemaps.init())
