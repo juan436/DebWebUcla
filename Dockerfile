@@ -42,7 +42,7 @@ RUN composer install --no-interaction --optimize-autoloader
 
 # Instalar dependencias de Node.js y compilar assets
 RUN npm install && \
-    npx gulp
+    npx gulp build
 
 # Exponer puerto
 EXPOSE 80
