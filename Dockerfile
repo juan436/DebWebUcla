@@ -31,7 +31,7 @@ COPY docker/apache-config.conf /etc/apache2/sites-available/000-default.conf
 COPY . /var/www/html/
 
 # Configurar variables de entorno
-COPY includes/.env /var/www/html/includes/.env
+COPY .env /var/www/html/includes/.env
 
 # Establecer permisos
 RUN chown -R www-data:www-data /var/www/html \
@@ -42,7 +42,7 @@ RUN composer install --no-interaction --optimize-autoloader
 
 # Instalar dependencias de Node.js y compilar assets
 RUN npm install && \
-    npx gulp build
+    npx gulp
 
 # Exponer puerto
 EXPOSE 80
