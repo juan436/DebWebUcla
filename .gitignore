@@ -6,3 +6,4 @@ vendor
 docker-compose.yml
 deploy.sh
 /docker
+.env
