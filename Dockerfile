@@ -37,6 +37,15 @@ COPY .env /var/www/html/includes/.env
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/public
 
+# Asegurar que .htaccess existe y tiene permisos correctos
+RUN if [ -f /var/www/html/public/.htaccess ]; then \
+        echo "El archivo .htaccess existe"; \
+    else \
+        echo "RewriteEngine On\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteCond %{REQUEST_FILENAME} !-d\nRewriteRule ^ index.php [QSA,L]" > /var/www/html/public/.htaccess; \
+    fi \
+    && chmod 644 /var/www/html/public/.htaccess \
+    && chown www-data:www-data /var/www/html/public/.htaccess
+
 # Instalar dependencias de Composer
 RUN composer install --no-interaction --optimize-autoloader
 
