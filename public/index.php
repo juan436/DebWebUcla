@@ -1,5 +1,13 @@
 <?php 
 
+// Manejar solicitud de favicon directamente para evitar redirecciones y timeouts
+if ($_SERVER['REQUEST_URI'] === '/favicon.ico') {
+    header('Content-Type: image/x-icon');
+    // Devolver un favicon vacío
+    echo '';
+    exit;
+}
+
 require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
@@ -86,5 +94,3 @@ $router->get('/workshops-conferencias', [PaginasController::class, 'conferencias
 $router->get('/404', [PaginasController::class, 'error']);
 
 $router->comprobarRutas();
-
-
