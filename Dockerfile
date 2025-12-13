@@ -19,12 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    if command -v corepack >/dev/null 2>&1; then \
-        corepack enable; \
-        corepack prepare pnpm@9.15.0 --activate; \
-    else \
-        npm install -g pnpm@9.15.0; \
-    fi
+    npm install -g pnpm@10.25.0
 
 # Instalar extensiones PHP necesarias
 RUN docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip

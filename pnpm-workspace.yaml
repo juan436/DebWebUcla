@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - sharp
+  - cwebp-bin
+  - gifsicle
+  - mozjpeg
+  - optipng-bin
