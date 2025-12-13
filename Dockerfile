@@ -8,6 +8,8 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
+    libgl1 \
+    libjpeg62-turbo-dev \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
